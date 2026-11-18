@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Maroon Café</title>
+  <meta name="description" content="Maroon Café — أول كافيه أونلاين في جنوب العراق. اختر مشروبك واطلبه مباشرة عبر واتساب.">
+  <meta name="theme-color" content="#3D0A16">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='32' fill='%235a1020'/%3E%3Ctext x='32' y='44' font-family='Georgia,serif' font-size='34' text-anchor='middle' fill='%23e9c3a2'%3EM%3C/text%3E%3C/svg%3E">
+
+  <!-- خطوط الواجهة الأولى تبدأ تنزل مبكراً -->
+  <link rel="preload" href="fonts/cinzel-latin-500.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/elmessiri-arabic-700.woff2" as="font" type="font/woff2" crossorigin>
+  <!-- غيّر رقم v بعد أي تعديل حتى تتحدث النسخة عند الزوار، وغيّر VERSION بملف sw.js -->
+  <link rel="stylesheet" href="styles.css?v=9">
+</head>
+<body>
+
+  <!-- ===== SVG sprites ===== -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <linearGradient id="leafFill" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#8a2a3a"/>
+        <stop offset="1" stop-color="#4a0e1a"/>
+      </linearGradient>
+      <symbol id="leaf" viewBox="0 0 120 50">
+        <path d="M2 25 C 25 -4, 85 -6, 118 25 C 85 56, 25 54, 2 25 Z" fill="url(#leafFill)"/>
+        <path d="M6 25 Q 60 22 114 25" stroke="#2a0710" stroke-width="1.6" fill="none" opacity=".55"/>
+        <path d="M30 24 l14 -12 M30 26 l14 12 M56 24 l14 -13 M56 26 l14 13 M82 24 l12 -10 M82 26 l12 10"
+              stroke="#2a0710" stroke-width="1" fill="none" opacity=".35"/>
+      </symbol>
+      <symbol id="branch" viewBox="0 0 260 260">
+        <path d="M10 250 C 70 190, 120 120, 210 20" stroke="#4a0e1a" stroke-width="3" fill="none"/>
+        <use href="#leaf" x="40" y="160" width="120" height="50" transform="rotate(-70 60 200)"/>
+        <use href="#leaf" x="70" y="150" width="120" height="50" transform="rotate(-15 90 175)"/>
+        <use href="#leaf" x="70" y="80"  width="110" height="46" transform="rotate(-95 120 110)"/>
+        <use href="#leaf" x="120" y="70" width="110" height="46" transform="rotate(-35 140 95)"/>
+        <use href="#leaf" x="150" y="0"  width="100" height="42" transform="rotate(-60 200 30)"/>
+      </symbol>
+      <symbol id="i-ig" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="17.3" cy="6.7" r="1.1" fill="currentColor"/></symbol>
+      <symbol id="i-wa" viewBox="0 0 24 24"><path d="M12 2.5a9.5 9.5 0 0 0-8.2 14.3L2.5 21.5l4.8-1.3A9.5 9.5 0 1 0 12 2.5Z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M8.6 7.6c.2-.4.4-.4.7-.4h.5c.2 0 .4 0 .6.4l.8 1.9c.1.2 0 .4-.1.6l-.5.6c-.1.1-.2.3 0 .5.4.8 1 1.5 1.7 2.1.6.5 1.3.9 2 1.2.2.1.4 0 .5-.1l.7-.8c.2-.2.4-.2.6-.1l1.8.9c.2.1.3.2.3.4 0 .5-.2 1.2-.7 1.6-.5.4-1.4.7-2.4.4a10 10 0 0 1-5.6-4.7c-.6-1.1-.8-2.1-.6-2.9.1-.6.4-1.1.7-1.6Z" fill="currentColor"/></symbol>
+      <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></symbol>
+      <symbol id="i-minus" viewBox="0 0 24 24"><path d="M5 12h14" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></symbol>
+      <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 3.5l2.5 5.2 5.7.8-4.1 4 1 5.6L12 16.4 6.9 19.1l1-5.6-4.1-4 5.7-.8Z" fill="currentColor"/></symbol>
+      <symbol id="i-bag" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"><path d="M5 8.5h14l-1.1 11.5H6.1L5 8.5Z"/><path d="M9 11V7a3 3 0 0 1 6 0v4"/><path d="M10 14.5c.8.9 3.2.9 4 0"/></g></symbol>
+      <symbol id="i-croissant" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"><path d="M3 15.5c1.3-4.6 5-7.8 9-7.8s7.7 3.2 9 7.8c-1.4 1.4-3.6 1.6-5.4.8L13.8 13 12 17l-1.8-4-1.8 3.3c-1.8.8-4 .6-5.4-.8Z"/><path d="M8.4 9.4 10.2 13M15.6 9.4 13.8 13M12 7.7V17"/></g></symbol>
+      <symbol id="i-sticker" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"><path d="M5 4.5h10l4 4V19.5H5Z"/><path d="M15 4.5V8.5h4"/><path d="m12 10.5.9 1.9 2 .3-1.5 1.4.4 2-1.8-1-1.8 1 .4-2-1.5-1.4 2-.3Z"/></g></symbol>
+      <symbol id="i-straw" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"><path d="M6.5 9.5h11l-1.3 11H7.8Z"/><path d="M5.5 9.5h13"/><path d="m12.5 9.5 2.2-6h3"/><path d="M8 14h8"/></g></symbol>
+      <symbol id="i-cup" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round"><path d="M6.5 8h11l-1.4 12.5H7.9Z"/><path d="M5.5 8h13"/><path d="M8.2 5.5h7.6L17 8H7Z"/></g></symbol>
+    </defs>
+  </svg>
+
+  <!-- ===== Header ===== -->
+  <header class="topbar" id="topbar">
+    <!-- اللوغو كنص: يظهر لمّن تتحول دائرة الواجهة له وهي تطلع لفوق -->
+    <a href="#top" class="brand" id="brand" aria-label="Maroon Café — الرجوع للأعلى">
+      <span class="wordmark wordmark--sm"><span class="wordmark__main">MAROON</span><span class="wordmark__script">cafe</span></span>
+    </a>
+    <div class="topbar__icons">
+      <a class="icon-btn" id="igTop" target="_blank" rel="noopener" aria-label="حسابنا على إنستغرام"><svg><use href="#i-ig"/></svg></a>
+      <a class="icon-btn" id="waTop" target="_blank" rel="noopener" aria-label="راسلنا على واتساب"><svg><use href="#i-wa"/></svg></a>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- ===== Hero ===== -->
+    <section class="hero">
+      <div class="hero__silk" aria-hidden="true"></div>
+      <div class="hero__inner">
+        <div class="emblem emblem--hero" id="heroEmblem">
+          <div class="emblem__ring"></div>
+          <span class="wordmark wordmark--lg"><span class="wordmark__main">MAROON</span><span class="wordmark__script">cafe</span></span>
+        </div>
+        <div class="hero__text reveal">
+          <span class="hero__kicker" lang="en" dir="ltr">The First of Its Kind</span>
+          <h1 class="hero__tag">أول كافيه أونلاين في جنوب العراق</h1>
+        </div>
+        <div class="hero__cta reveal">
+          <a href="#menu" class="btn btn--gold">تصفّح المنيو</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- الانتقال من الماروني للأبيض الترابي -->
+    <div class="blend blend--down" aria-hidden="true">
+      <div class="ornament"><span></span><i></i><span></span></div>
+    </div>
+
+    <!-- ===== Menu ===== -->
+    <section class="menu" id="menu">
+      <svg class="menu__leaf menu__leaf--a" aria-hidden="true"><use href="#branch"/></svg>
+      <svg class="menu__leaf menu__leaf--b" aria-hidden="true"><use href="#branch"/></svg>
+      <svg class="menu__leaf menu__leaf--c" aria-hidden="true"><use href="#branch"/></svg>
+
+      <div class="menu__head reveal">
+        <span class="eyebrow">MENU</span>
+        <h2 class="section-title">المنيو</h2>
+        <div class="divider" aria-hidden="true"><span></span><i></i><span></span></div>
+        <p class="menu__hint">اختر الكمية بـ <b>+</b> وبعدها اضغط <b>اطلب عبر واتساب</b></p>
+      </div>
+
+      <!-- الصنف المميز -->
+      <div id="featured"></div>
+
+      <nav class="tabs" id="tabs" aria-label="أقسام المنيو"></nav>
+
+      <div id="menuList"></div>
+    </section>
+
+    <!-- ===== من نحن ===== -->
+    <section class="about" id="about" aria-labelledby="about-title">
+      <div class="menu__head reveal">
+        <span class="eyebrow">ABOUT US</span>
+        <h2 class="section-title" id="about-title">من نحن</h2>
+        <div class="divider" aria-hidden="true"><span></span><i></i><span></span></div>
+      </div>
+      <div id="aboutBody"></div>
+    </section>
+
+    <!-- الانتقال من الأبيض الترابي للماروني -->
+    <div class="blend blend--up" aria-hidden="true">
+      <div class="ornament"><span></span><i></i><span></span></div>
+    </div>
+
+    <!-- ===== Contact ===== -->
+    <section class="info" id="contact">
+      <div class="info__inner">
+        <span class="eyebrow eyebrow--light">CONTACT</span>
+        <h2 class="section-title section-title--light">تواصل معنا</h2>
+        <div class="divider divider--light" aria-hidden="true"><span></span><i></i><span></span></div>
+
+        <ul class="info__list">
+          <li class="reveal">
+            <a class="info__item" id="waInfo" target="_blank" rel="noopener">
+              <span class="info__icon"><svg><use href="#i-wa"/></svg></span>
+              <div><small>واتساب</small><strong class="ltr" id="infoWa"></strong></div>
+              <span class="info__link">مراسلة</span>
+            </a>
+          </li>
+          <li class="reveal">
+            <a class="info__item" id="igInfo" target="_blank" rel="noopener">
+              <span class="info__icon"><svg><use href="#i-ig"/></svg></span>
+              <div><small>إنستغرام</small><strong class="ltr" id="infoIg"></strong></div>
+              <span class="info__link">متابعة</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span class="wordmark wordmark--sm"><span class="wordmark__main">MAROON</span><span class="wordmark__script">cafe</span></span>
+    <p>© <span id="year"></span> Maroon Café · أول كافيه أونلاين في جنوب العراق</p>
+  </footer>
+
+  <!-- ===== زر الواتساب العام ===== -->
+  <div class="orderbar">
+    <a class="orderbar__btn" id="orderBtn" target="_blank" rel="noopener">
+      <svg class="orderbar__icon"><use href="#i-wa"/></svg>
+      <span class="orderbar__label">اطلب عبر واتساب</span>
+      <span class="orderbar__sum" id="orderSum" hidden>
+        <span class="orderbar__count" id="orderCount">0</span>
+        <span id="orderTotal"></span>
+      </span>
+    </a>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="menu.js?v=9"></script>
+  <script src="app.js?v=9"></script>
+</body>
+</html>

@@ -1,0 +1,9 @@
+Fonts in this folder are distributed under the SIL Open Font License, Version 1.1
+https://openfontlicense.org
+
+- Cinzel        — Copyright The Cinzel Project Authors
+- Great Vibes   — Copyright TypeSETit
+- El Messiri    — Copyright The El Messiri Project Authors
+- Tajawal       — Copyright Boutros International
+
+Files were downloaded from Google Fonts (Arabic and Latin subsets only).
